@@ -176,7 +176,7 @@ const ARTIST_DATA = const [
     ],
     name: 'Ludwig van Beethoven',
     imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg/800px-Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Beethoven.jpg/800px-Beethoven.jpg',
     description:
         'Ludwig van Beethoven was a German composer and pianist. He was a crucial figure in the transition between the classical and romantic eras in classical music and is considered to be one of the greatest composers of all time.',
     songs: [
@@ -201,7 +201,7 @@ const ARTIST_DATA = const [
     ],
     name: 'Vitor Kley',
     imageUrl:
-        'https://pt.wikipedia.org/wiki/Vitor_Kley#/media/Ficheiro:Vitor_Kley_no_Multishow_2019.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Vitor_Kley%2C_2018.jpg/800px-Vitor_Kley%2C_2018.jpg',
     description:
         'Born in Porto Alegre and raised in Balneário Camboriú and raised in Novo Hamburgo, he started playing guitar in his teens and was encouraged by his mother Janice Barbiero and his father Ivan Kley, who presents him with a guitar when he was 11 years old.',
     songs: [
