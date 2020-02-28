@@ -1,4 +1,3 @@
-import 'package:beat_up/models/artist.dart';
 import 'package:beat_up/music_data.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +9,8 @@ class ArtistDetailScreen extends StatelessWidget {
   ArtistDetailScreen(
       {@required this.isFavorite, @required this.toggleFavorite});
 
+// These function is created because it is repeated in different parts of the code
+// and it is necessary to extract in a single function
   Widget buildTitle(BuildContext ctx, String title) {
     return Container(
       padding: EdgeInsets.all(10),
@@ -21,7 +22,6 @@ class ArtistDetailScreen extends StatelessWidget {
       ),
     );
   }
-
   Widget buildContainer(List<String> list) {
     return Container(
       height: 200,
@@ -40,6 +40,7 @@ class ArtistDetailScreen extends StatelessWidget {
           subtitle: Container(
             height: 40,
             width: 100,
+            alignment: Alignment.centerLeft,
             decoration: BoxDecoration(
               color: Colors.white54,
               border: Border.all(color: Colors.grey),
@@ -51,7 +52,6 @@ class ArtistDetailScreen extends StatelessWidget {
                 fontSize: 20,
                 color: Colors.white,
               ),
-              textAlign: TextAlign.start,
             ),
           ),
         ),
@@ -59,7 +59,7 @@ class ArtistDetailScreen extends StatelessWidget {
       ),
     );
   }
-
+//
   @override
   Widget build(BuildContext context) {
     final artistId = ModalRoute.of(context).settings.arguments as String;

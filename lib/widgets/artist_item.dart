@@ -11,7 +11,7 @@ class ArtistItem extends StatelessWidget {
     @required this.name,
     @required this.imageUrl,
   });
-
+  // this function redirect the route a artist that it was select
   void selectArtis(BuildContext ctx) {
     Navigator.of(ctx).pushNamed(
       ArtistDetailScreen.routeName,
@@ -33,6 +33,7 @@ class ArtistItem extends StatelessWidget {
           children: <Widget>[
             Stack(
               children: <Widget>[
+                // this widget is for give shape circular to an image or content
                 ClipRRect(
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(15),

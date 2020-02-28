@@ -15,6 +15,7 @@ class _FilterScreenState extends State<FilterScreen> {
   bool _isSolist = false;
   bool _isBand = false;
 
+  // initialize the variables in false
   @override
   void initState() {
     super.initState();
@@ -22,16 +23,30 @@ class _FilterScreenState extends State<FilterScreen> {
     _isBand = widget.currentFilters['isBand'];
   }
 
-  Widget _builtSwichListTile(String title, String description,
-      bool currentValue, Function updateValue) {
+  // This function use to create the switch and release the filters
+  // and save the filters
+  Widget _builtSwichListTile(
+      String title, String description, bool currentValue) {
     return SwitchListTile(
       title: Text(title),
       subtitle: Text(description),
       value: currentValue,
-      onChanged: updateValue,
+      onChanged: (newValue) {
+        setState(() {
+          currentValue = newValue;
+          _saveStateFilters();
+        });
+      },
     );
   }
-
+  // function for save state of filters
+  void _saveStateFilters() {
+    final selectedFilters = {
+      'isSolist': _isSolist,
+      'isBand': _isBand,
+    };
+    widget.saveFilters(selectedFilters);
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,28 +63,11 @@ class _FilterScreenState extends State<FilterScreen> {
               style: Theme.of(context).textTheme.title,
             ),
           ),
-          _builtSwichListTile('Solist', 'Only solists', _isSolist, (newValue) {
-            setState(() {
-              _isSolist = newValue;
-              _saveStateFilters();
-            });
-          }),
-          _builtSwichListTile('Band', 'Only bands', _isBand, (newValue) {
-            setState(() {
-              _isBand = newValue;
-              _saveStateFilters();
-            });
-          }),
+          _builtSwichListTile('Solist', 'Only solists', _isSolist),
+          _builtSwichListTile('Band', 'Only bands', _isBand),
         ],
       ),
     );
   }
 
-  void _saveStateFilters() {
-    final selectedFilters = {
-      'isSolist': _isSolist,
-      'isBand': _isBand,
-    };
-    widget.saveFilters(selectedFilters);
-  }
 }

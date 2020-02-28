@@ -10,7 +10,7 @@ class Artist {
   final List<String> albums;
   final bool isSolist;
   final bool isBand;
-
+// constructor to be used in the data base as a const list
   const Artist({
     @required this.id,
     @required this.genres,

@@ -15,6 +15,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
   Map<String, bool> _filters = {
     'isSolist': false,
     'isBand': false,
@@ -22,6 +23,9 @@ class _MyAppState extends State<MyApp> {
   List<Artist> _avaibleArtist = ARTIST_DATA;
   List<Artist> _favoritesArtist = [];
 
+  // Is necesary create an filters for separete solist and band.
+  // returned false if it's not include and true if it's include
+  // in the list.
   void _setFilters(Map<String, bool> filtersData) {
     setState(() {
       _filters = filtersData;
@@ -36,6 +40,8 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  // This function is used to add and remove in the favorites
+  // list dependent of id if it's in the list.
   void _toggleFavorites(String artistId) {
     final existIndex =
         _favoritesArtist.indexWhere((artist) => artist.id == artistId);
@@ -51,6 +57,7 @@ class _MyAppState extends State<MyApp> {
     }
   }
 
+  // this function verify if an artist is in favorites
   bool _isFavoriteArtist(String id) {
     return _favoritesArtist.any((artist) => artist.id == id);
   }
@@ -59,6 +66,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'BeatUp',
+      // Themes globals for the app
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
         accentColor: Colors.greenAccent,

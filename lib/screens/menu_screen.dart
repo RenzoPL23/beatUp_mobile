@@ -16,6 +16,7 @@ class _MenuScreenState extends State<MenuScreen> {
   int _selectedPageIndex = 0;
   List<Map<String, Object>> _pages;
 
+  // initialize the pages for change in the screen
   @override
    void initState() {
     super.initState();
@@ -30,7 +31,7 @@ class _MenuScreenState extends State<MenuScreen> {
       },
     ];
   }
-
+  // this function is for switch in pages
   void _selectedPage(int index) {
     setState(() {
       _selectedPageIndex = index;
@@ -44,6 +45,7 @@ class _MenuScreenState extends State<MenuScreen> {
         title: Text(_pages[_selectedPageIndex]['title']),
       ),
       drawer: MainDrawer(),
+      // in this part select the pages that It will show 
       body: _pages[_selectedPageIndex]['page'],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Theme.of(context).primaryColor,

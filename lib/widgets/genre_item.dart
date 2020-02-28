@@ -10,7 +10,7 @@ class GenreItem extends StatelessWidget {
     @required this.title,
     @required this.color,
   });
-
+  // this function redirect to an genre that It was select
   void selectGenre(BuildContext ctx) {
     Navigator.of(ctx).pushNamed(ArtistScreen.routeName,
         arguments: {'id': id, 'title': title});
@@ -18,6 +18,8 @@ class GenreItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // InkWell is a widget that When your select in a genre this widget make an
+    // callback to the genre selected
     return InkWell(
       onTap: () => selectGenre(context),
       splashColor: Theme.of(context).primaryColor,

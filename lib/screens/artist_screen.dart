@@ -1,4 +1,3 @@
-import 'package:beat_up/music_data.dart';
 import 'package:beat_up/widgets/artist_item.dart';
 import 'package:flutter/material.dart';
 import '../models/artist.dart';
@@ -17,9 +16,11 @@ class _ArtistScreenState extends State<ArtistScreen> {
   List<Artist> displayedArtist;
   var _loadData = false;
 
+  // didChangeDependencies is used for update the information for each the builder execute
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+    // it's verify if the data is charge
     if (!_loadData) {
       final routeArgs =
           ModalRoute.of(context).settings.arguments as Map<String, String>;
